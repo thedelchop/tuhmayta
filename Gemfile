@@ -1,39 +1,45 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.1'
+gem 'rails', '>=3.0.0'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'sqlite3-ruby', :require => 'sqlite3', :group => [:test, :development, :cucubmer]
+gem 'mysql', :group => [:production]
 
-gem 'sqlite3-ruby', :require => 'sqlite3'
+# Devise for user authentication and cancan for easer role management
+gem 'hpricot'
+gem 'ruby_parser'
 
-# Use unicorn as the web server
-# gem 'unicorn'
+gem 'devise', '>= 1.1'
+gem 'cancan', '1.3.4'
 
-# Deploy with Capistrano
-# gem 'capistrano'
+# Haml for better markup/styling
+gem 'haml', '>= 3.0.17'
 
-# To use debugger
-# gem 'ruby-debug'
+# Paperclip for file attachments
+gem 'paperclip'
 
-# Bundle the extra gems:
-# gem 'bj'
-# gem 'nokogiri'
-# gem 'sqlite3-ruby', :require => 'sqlite3'
-# gem 'aws-s3', :require => 'aws/s3'
+# Will paginate for pagination support
+gem 'will_paginate'
 
-# Bundle gems for the local environment. Make sure to
-# put test-only gems in this group so their generators
-# and rake tasks are available in development mode:
-# group :development, :test do
-#   gem 'webrat'
-# end
-gem "capybara", ">= 0.3.9", :group => [:test, :cucumber]
-gem "cucumber-rails", ">= 0.3.2", :group => [:test, :cucumber]
-gem "database_cleaner", ">= 0.5.2", :group => [:test, :cucumber]
-gem "factory_girl_rails", ">= 1.0.0", :group => [:test, :cucumber]
-gem "factory_girl_generator", ">= 0.0.1", :group => [:test, :cucumber, :development]
-gem "haml-rails", ">= 0.3.1"
-gem "launchy", ">= 0.3.7", :group => [:test, :cucumber]
-gem "rspec-rails", ">= 2.0.0", :group => [:test, :cucumber]
-gem "spork", ">= 0.8.4", :group => [:test, :cucumber]
+#Capistrano for deployment
+gem 'capistrano'
+gem 'mongrel'
+
+# Extra easy rails generators
+gem 'rails3-generators', :group => :development
+gem 'haml-rails', '>= 0.0.2', :group => :development
+gem 'factory_girl_generator', '>= 0.0.1'
+
+gem 'ruby-debug', :group => :development
+
+group :test, :cucumber do
+  gem 'autotest-rails'
+  gem 'capybara', '>= 0.3.9'
+  gem 'cucumber-rails', '>= 0.3.2'
+  gem 'prawn'
+  gem 'database_cleaner', '>= 0.5.2'
+  gem 'factory_girl_rails', '>= 1.0.0'
+  gem 'launchy', '>= 0.3.5'
+  gem 'webrat'
+  gem 'rspec-rails', '>= 2.0.0.rc'
+end
