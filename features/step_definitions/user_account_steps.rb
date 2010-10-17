@@ -35,8 +35,8 @@ When /I fill out the registration form */ do
   fill_in("Password confirmation", :with => "secret")
 end
 
-Given /^I am the registered Tuhmayta user, (.*)/ do |username|
-  @current_user = Factory(:user, :email => "#{username}@example.com", :password => "secret", :password_confirmation => "secret" )
+Given 'I am a registered Tuhmayta user with the email, "$email"' do |email|
+  Given "I am a user with the email, \"#{email}\""
 end
 
 When /^I login/ do

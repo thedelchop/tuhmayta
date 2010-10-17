@@ -18,7 +18,7 @@ Feature: Sign up for user account
         | Password              | secret  |
         | Password confirmation | secret  |
       And I press "Sign up"
-     Then I should be on the homepage
+     Then I should be on my pomodoro page
       And I should see "Log Out"
 
   Scenario: Attempt to sign up when Tuhmayta account exists

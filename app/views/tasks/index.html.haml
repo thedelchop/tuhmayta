@@ -1,0 +1,5 @@
+= form_for :task do |task|
+  = task.text_field :name
+  = task.select :estimate, 1..5
+  = task.text_field :tags
+  = task.submit "Add Task"
