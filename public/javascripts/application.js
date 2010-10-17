@@ -78,6 +78,8 @@ $(function() {
                 {
                     $.epiclock.restart();
                 });
+    
+      $.epiclock.pause();
 
     $(".portlet").addClass("ui-widget ui-widget-content ui-helper-clearfix ui-corner-all")
       .find(".portlet-header")
