@@ -1,8 +1,7 @@
-
-          %li.ui-state-default
-            %span#pin-icon &nbsp;
-            .portlet
-              .portlet-header
-                = task.name 
-                - task.estimate.times do
-                  %span.estimated_pomodoros#tomato-icon &nbsp;
+%li.ui-state-default{:id => "task_#{task.id}"}
+  %span#pin-icon &nbsp;
+  .portlet
+    .portlet-header
+      = task.name 
+      - task.estimate.times do
+        %span.estimated_pomodoros#tomato-icon &nbsp;

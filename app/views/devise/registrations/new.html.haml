@@ -1,0 +1,25 @@
+- content_for :css_includes do
+  %title This is the title
+  = stylesheet_link_tag :home
+
+#signin
+  %p#signup
+    %span#tomato-icon> &nbsp;
+    Need an account?
+    %a{:href => "#"} Click here
+  .logo
+    %img{:border => "0", :src => "../images/signin.png"}/
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+    = devise_error_messages!
+    = f.label :email
+    %br/
+    = f.text_field :email
+    = f.label :password
+    %br/
+    = f.password_field :password
+    = f.label :password_confirmation
+    %br/
+    = f.password_field :password_confirmation
+    = f.submit "Sign up"
+  .tab_wood
+    Something cool

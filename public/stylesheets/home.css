@@ -1,0 +1,199 @@
+/* home page*/
+
+html, body, div,
+fieldset, form, label {
+  margin: 0; padding: 0; border: 0; outline: 0; font-weight: inherit; font-style: inherit;
+  font-size: 100%; font-family: inherit; vertical-align: baseline; 
+}
+
+
+body { line-height: 1; color: black; background: white; }
+
+html {
+  height: 100%;
+}
+
+body {
+  background:none repeat scroll 0 0 #EEEEEE;
+  font: 15px/18px 'Lucida Grande', Calibri, Arial;
+}
+
+
+
+#content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  min-width: 750px;
+}
+
+
+
+
+#signin {
+  position: absolute;
+  background:url("images/linen.png") repeat scroll 0 0 #333333;
+  top: 50%;
+  margin-top: -174px;
+  right: 0px;
+  width: 60%;
+  height: 150px;
+  padding: 70px 30px 100px 30px;
+  color: #fff;
+}
+
+
+
+
+#footer {
+  position: absolute;
+  bottom: 0px;
+  color: #aaa;
+  width: 100%;
+  font-size: 13px;
+  line-height: 21px;
+}
+
+
+#footer div.wrapper {
+  padding-left: 25px;
+  padding-right: 40px;
+  margin-bottom: 10px;
+}
+
+
+
+#footer a {
+  float: right;
+  color: #aaa;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+#footer a:hover {
+  color: #000;
+}
+
+input {
+  font: 20px/20px 'Lucida Grande', Calibri, Arial;
+  margin-top: 5px;
+  width: 250px;
+  padding: 2px;
+  border: 0;
+}
+
+label {
+  display: block;
+  width: 200px;
+  padding-top: 9px;
+  padding-right: 10px;
+  color: #FFFFFF;
+}
+
+
+#signup {
+left:30px;
+position:absolute;
+top:-50px;
+color:#AAAAAA;
+font-size:22px;
+text-shadow:1px 1px 0 #FFFFFF;
+}
+#signup a {
+color:#AAAAAA;
+text-decoration:none;
+}
+#signup a:hover {
+color:#000;
+}
+
+.logo {
+left:20px;
+position:absolute;
+top:0;
+}
+
+.tab_wood {
+background:url("images/wood.jpg") no-repeat scroll left top transparent;
+color:#FFFFFF;
+text-decoration:none;
+bottom:-33px;
+cursor:pointer;
+height:20px;
+padding:7px 15px 6px;
+position:absolute;
+right:30px;
+}
+
+#tomato-icon {
+float:left;
+background-image:url("images/tomato.png");
+width:30px;
+height:25px;
+}
+
+.signin_button {
+cursor:pointer;
+font-family:"American Typewriter","Constantia","Verdana",monospace;
+font-size:18px;
+left:30px;
+position:absolute;
+text-transform:uppercase;
+top:230px;
+width:500px;
+}
+	
+	
+#tabs { 
+height: 200px; 
+position: absolute;
+  background:url("images/linen.png") repeat scroll 0 0 #333333;
+  top: 50%;
+  margin-top: -174px;
+  right: 0px;
+  width: 60%;
+  height: 150px;
+  padding: 70px 30px 100px 30px;
+  color: #fff;
+} 
+.ui-corner-all {
+-moz-border-radius:0px;
+}
+.ui-widget-content {
+	border:none;
+}
+
+		
+		.tabs-bottom .ui-tabs-nav {
+  position: absolute !important;
+  bottom: 0px;
+  color: #aaa;
+  width: 100%;
+  font-size: 13px;
+  line-height: 21px;
+		}
+
+.banner {
+height:106px;
+margin-left:auto;
+margin-right:auto;
+margin-bottom:25px;
+width:980px;
+text-shadow:1px 1px 0 #FFFFFF;
+}
+
+.banner  a {
+  float: right;
+  color: #aaa;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+.banner  a:hover {
+  color: #000;
+}
+
+#remember_me input { display: inline;}
+#remember_me label { display: inline;}
+
+#remember_me{ margin-top: 10px;}

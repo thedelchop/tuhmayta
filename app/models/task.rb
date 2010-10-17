@@ -6,7 +6,7 @@ class Task < ActiveRecord::Base
   belongs_to :user
   has_many :pomodoros
 
-  attr_accessible :name, :user_id, :user, :estimate, :urgent
+  attr_accessible :name, :user_id, :user, :estimate, :urgent, :tag_list
 
   validates :name, :presence => true
 
@@ -16,7 +16,15 @@ class Task < ActiveRecord::Base
   validates :user_id, :presence => true
    
   def append_to_master_list
+    
+    current_user = User.find(self.user_id)
+
     # Create a new list_task entry for this task
-    ListTask.create(:task_id => self.id, :list_id => User.find(self.user_id).master_list.id)
+    ListTask.create(:task_id => self.id, :list_id => current_user.master_list.id, :position => current_user.master_list.tasks.count + 1)
+   
+    # If the task is urgent then we also need to add it to the current_list
+    if self.urgent? 
+      ListTask.create(:task_id => self.id, :list_id => current_user.current_list.id)
+    end
   end
 end

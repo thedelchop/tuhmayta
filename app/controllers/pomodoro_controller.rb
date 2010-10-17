@@ -1,6 +1,6 @@
 class PomodoroController < ApplicationController
   def create
-    @pomodoro = Pomodoro.create(params[:pomodoro]
+    @pomodoro = Pomodoro.create(params[:pomodoro])
   end
 
   def index

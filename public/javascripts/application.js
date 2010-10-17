@@ -3,36 +3,43 @@ $(function() {
   var $tabs = $("#tabs").tabs();
 
   var $tab_items = $("ul:first li",$tabs).droppable({
-    accept: ".connectedSortable li",
+    accept: ".sortable li",
     hoverClass: "ui-state-hover",
     drop: function(ev, ui) {
       var $item = $(this);
-      var $list = $($item.find('a').attr('href')).find('.connectedSortable');
+      var $list = $($item.find('a').attr('href')).find('.sortable');
 
       ui.draggable.hide('slow', function() {
         $tabs.tabs('select', $tab_items.index($item));
         $(this).appendTo($list).show('slow');
-      });
+      
+        // Make an update to the controller to update the entry in the list-task table
+        // to reflect that this task is now in a new list
+        id =  $(this).parent().attr("id").split("_")[1];
+        task_id = $(this).attr("id").split("_")[1];
+
+        $list_to_sort = $(this).parent();
+
+        $.post('/lists/' + id + '/add', {task_id: task_id}, function(){
+          
+          $.post('/lists/' + id + '/sort', $list_to_sort.sortable('serialize'));
+          });
+        
+        });
     }
   });
   
-  $(".portlet").addClass("ui-widget ui-widget-content ui-helper-clearfix ui-corner-all")
-    .find(".portlet-header")
-      .addClass("ui-widget-header ui-corner-all")
-      .prepend('<span class="ui-icon ui-icon-plusthick"></span>')
-      .end()
-    .find(".portlet-content");
-
-  $(".portlet-header .ui-icon").click(function() {
-    $(this).toggleClass("ui-icon-minusthick").toggleClass("ui-icon-plusthick");
-    $(this).parents(".portlet:first").find(".portlet-content").toggle();
-  });
 		
-  $("#sortable1, #sortable2").disableSelection();
+  $(".sortable").disableSelection();
   
-  $("#sortable1, #sortable2").sortable({
+  $(".sortable").sortable({
     placeholder: 'ui-state-highlight',
-    cursorAt: { cursor: "move", top: 5, left: 445,
+    cursorAt: { cursor: "move", top: 5, left: 445},
+    update : function() {
+      id =  $(this).attr("id").split("_")[1];
+      $.post('/lists/'+ id + '/sort',
+        $(this).sortable('serialize'));
+    },
     start: function() {
       $("#pin-icon").addClass("hide");
     },
@@ -40,13 +47,32 @@ $(function() {
       $("#pin-icon").removeClass("hide");
     }
   });
-  
-  
+
+  $("#new-task-form").submit(function(){
+
+    $.post("/tasks/",
+            $(this).serialize(), 
+            function(task, status){
+              $(".master").append(task);},
+            "html"); 
+    
+    return false;
+  });
+
 });
 
 
+$(".portlet").addClass("ui-widget ui-widget-content ui-helper-clearfix ui-corner-all")
+  .find(".portlet-header")
+    .addClass("ui-widget-header ui-corner-all")
+    .prepend('<span class="ui-icon ui-icon-plusthick"></span>')
+    .end()
+  .find(".portlet-content");
 
-
+$(".portlet-header .ui-icon").click(function() {
+  $(this).toggleClass("ui-icon-minusthick").toggleClass("ui-icon-plusthick");
+  $(this).parents(".portlet:first").find(".portlet-content").toggle();
+});
 
 /* set global variable for boxy window */
 var contactBoxy = null;
@@ -75,4 +101,6 @@ $('#contact_us').click(function(){
     });
     return false;
 });
+
+
 

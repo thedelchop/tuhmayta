@@ -8,7 +8,18 @@ Tuhmayta::Application.routes.draw do
 
   devise_for :users do
     resources :tasks
+    
+    resources :lists do
+      
+      member do
+        post :sort
+        post :add
+      end
+    end
   end
 
-  root :to => "pages#home"
+  devise_scope :user do
+    root :to => "devise/sessions#new"
+  end
+
 end
