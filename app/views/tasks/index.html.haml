@@ -30,5 +30,5 @@
     %ul.sortable.master.ui-helper-reset{:id => "list_#{current_user.master_list.id}"}
       = render :partial => "task", :collection => @master_tasks 
   #tabs-2
-    %ul.sortable.ui-helper-reset{:id => "list_#{current_user.current_list.id}"}
+    %ul.sortable.current.ui-helper-reset{:id => "list_#{current_user.current_list.id}"}
       = render :partial => "task", :collection => @current_tasks

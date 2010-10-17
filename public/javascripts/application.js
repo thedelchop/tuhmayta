@@ -48,19 +48,14 @@ $(function() {
     }
   });
 
-  $("#new-task-form").submit(function(){
-
-    
-    return false;
-  });
-
 //------------------------------
                 //  Retro Countdown
                 //------------------------------
                 
-                $('#countdown-retro').epiclock({mode: $.epiclock.modes.loop, offset: {seconds: 15}, format: 'i:s', renderer: 'retro-countdown'}).bind('timer', function ()
+                $('#countdown-retro').epiclock({mode: $.epiclock.modes.loop, offset: {minutes: 25}, format: 'i:s', renderer: 'retro-countdown'}).bind('timer', function ()
                 {
-                    $('#loopcounter').text(parseInt($('#loopcounter').text(), 10) + 1).css('color', '#EE1700');
+                   $li =  $($(".current").children()[0]);
+                   $li.find("#tomato_bg-icon:first").attr("id","tomato-icon"); 
                 });
                 
                 //------------------------------

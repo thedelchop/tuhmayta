@@ -156,19 +156,19 @@ margin-top:-8px;
 }
 #tomato-icon {
 	float:right;
-background-image:url("images/tomato.png");
+background-image:url("/images/tomato.png");
 width:30px;
 height:25px;
 }
 #tomato_bg-icon {
 	float:right;
-background-image:url("images/tomato_bg.png");
+background-image:url("/images/tomato_bg.png");
 width:30px;
 height:25px;
 }
 #x-icon {
 float:right;
-background-image:url("images/x.png");
+background-image:url("/images/x.png");
 width:24px;
 height:25px;
 }
