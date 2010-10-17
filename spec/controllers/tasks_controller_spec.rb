@@ -30,25 +30,42 @@ describe TasksController do
 
   describe "POST 'create'" do
     before(:each) do
-      @task = Factory(:task, :user => @current_user)
+      @task = Factory.build(:task, :user => @current_user)
     end
 
     it "should create a new task based on the params that were received" do
       @current_user.stub_chain(:tasks, :new).and_return(@task)
+      @current_user.tasks.should_receive(:new).and_return(@task)
       post :create, :task => @task
     end
 
     context "when the task saves sucessfully" do
       before(:each) do
-        current_user.stub_chain(:tasks, :save).and_return(true)
+       @task.stub(:save).and_return(true)
       end
 
       it "should render the object in json" do
         expected_response = @task.to_json
         post :create, :task => @task
-        debugger
-        response.body
+        ActiveSupport::JSON.decode(response.body) == ActiveSupport::JSON.decode(expected_response)
       end
+    end
+
+    context "when the tasks doesn't save sucessfully" do
+      before(:each) do
+        @task.stub(:save).and_return(false)
+      end
+
+     it "should set the flash alert message to \"The Task couldn't be saved\"" do
+       post :create, :task => @task
+       flash[:alert].should == "The task couldn't be saved"
+     end
+
+     it "should render nothing" do
+       post :create, :task => @task
+       response.should render_template(:create) 
+     end
+
     end
   end
 end

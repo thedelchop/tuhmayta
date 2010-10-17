@@ -10,7 +10,7 @@ Feature: Add new task
       And I estimate this task will take 4 Pomodoros
       And I tag this task with "test, these, tags"
      When I press "Add Task"
-     Then I should see "Test Tasks" within "Task List"
+     Then I should see "Test Tasks" in my list of tasks
       And I should see "Task added succesfully"
 
   # Scenario: Add New Task

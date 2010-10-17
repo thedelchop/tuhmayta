@@ -10,3 +10,9 @@ end
 And 'I tag this task with "$tags"' do |tags|
   fill_in('task[tags]', :with => tags)
 end
+
+Then 'I should see "$task_name" in my list of tasks' do |$task_name|
+  within("#master-list")do
+    page.should have_content(task-name)
+  end
+end

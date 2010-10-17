@@ -18,4 +18,20 @@ describe Task do
     @task.user = nil
     @task.should_not be_valid
   end
+
+  it "must be given an estimated time of completion" do
+    @task.estimate = nil
+    @task.should_not be_valid
+  end
+
+  it "the estimate cannot be 0" do 
+    @task.estimate = 0
+    @task.should_not be_valid
+  end
+
+  it "the estimate cannot be greater than 5" do
+    @task.estimate = 6
+    @task.should_not be_valid
+  end
+
 end

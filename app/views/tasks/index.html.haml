@@ -3,3 +3,15 @@
   = task.select :estimate, 1..5
   = task.text_field :tags
   = task.submit "Add Task"
+  #tabs
+    %ul
+      %li
+        %a{:href => "#tabs-1"} Master list
+      %li
+        %a{:href => "#tabs-2"} Today's tasks
+    #tabs-1
+      %ul#sortable1.connectedSortable.ui-helper-reset#master-list
+        = render :partial => "task", :collection => @tasks 
+    #tabs-2
+      %ul#sortable2.connectedSortable.ui-helper-reset
+        = render :partial => "task", :collection => @current_tasks
