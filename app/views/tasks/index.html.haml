@@ -18,6 +18,12 @@
     .logo
       = image_tag "logo.png"
 
+- content_for :footer do
+  = render :partial => "shared/footer"
+
+- content_for :sidebar do
+  = render :partial => "shared/sidebar"
+
 #tabs
   %ul
     %li

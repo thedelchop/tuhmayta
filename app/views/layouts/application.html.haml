@@ -23,6 +23,6 @@
     .content
       = yield
     #footer
-      = render :partial => "shared/footer"
+      = yield :footer
     #sidebar
-      = render :partial => "shared/sidebar"
+      = yield :sidebar
