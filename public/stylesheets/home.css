@@ -37,12 +37,10 @@ body {
   margin-top: -174px;
   right: 0px;
   width: 60%;
-  height: 150px;
+  min-height: 150px;
   padding: 70px 30px 100px 30px;
   color: #fff;
 }
-
-
 
 
 #footer {

@@ -2,19 +2,30 @@
   = stylesheet_link_tag "jquery.ui.all"
   = stylesheet_link_tag "app"
   = stylesheet_link_tag "boxy"
+  = stylesheet_link_tag "jquery.epiclock"
+  = stylesheet_link_tag "../renderers/retro/epiclock.retro"
+  = stylesheet_link_tag "../renderers/retro-countdown/epiclock.retro-countdown"
 
+- content_for :navigation do
+  .banner
+    = link_to "Log Out", destroy_user_session_path
+    %a#new-task{:href => '#'}
+      New Task
+    %a#resume{:href => '#'}
+      Resume
+    %a#pause{:href => '#'}
+      Pause
+    .logo
+      = image_tag "logo.png"
 
-= form_for :task, :html => {:id => "new-task-form"} do |task|
-  = task.text_field :name, :value => "task name"
-  = task.select :estimate, 1..5, {:prompt => "estimated pomodoros"}
-  = task.text_field :tag_list, :value => "tags"
-  = task.submit "Add Task"
 #tabs
   %ul
     %li
       %a{:href => "#tabs-1"} Master list
     %li
       %a{:href => "#tabs-2"} Today's tasks
+  .timer
+    #countdown-retro
   #tabs-1
     %ul.sortable.master.ui-helper-reset{:id => "list_#{current_user.master_list.id}"}
       = render :partial => "task", :collection => @master_tasks 

@@ -22,14 +22,14 @@ width:980px;
 text-shadow:1px 1px 0 #FFFFFF;
 }
 
-.banner  a {
+.banner a {
   float: right;
   color: #aaa;
   margin-left: 20px;
   text-decoration: none;
 }
 
-.banner  a:hover {
+.banner a:hover {
   color: #000;
 }
 
@@ -160,6 +160,18 @@ background-image:url("images/tomato.png");
 width:30px;
 height:25px;
 }
+#tomato_bg-icon {
+	float:right;
+background-image:url("images/tomato_bg.png");
+width:30px;
+height:25px;
+}
+#x-icon {
+float:right;
+background-image:url("images/x.png");
+width:24px;
+height:25px;
+}
 
 	
 /* tabs */
@@ -185,4 +197,29 @@ background:#333333;
 
 .hide { display:none; }
 
-#new-task-form{margin-bottom: 50px;}
+.timer {
+margin-left:2em;
+margin-top:1em;
+}
+
+.description {
+height:106px;
+margin-top:2em;
+text-shadow:1px 1px 0 #FFFFFF;
+}
+
+.description p {
+  color: #aaa;
+  margin-left: 20px;
+  text-shadow:1px 1px 0 #FFFFFF;
+}
+.description a {
+  color: #aaa;
+  text-decoration: none;
+}
+
+
+.description a:hover {
+  color: #000;
+}
+

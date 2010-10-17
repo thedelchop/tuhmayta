@@ -16,12 +16,6 @@ class TasksController < ApplicationController
     end
   end
 
-  def sort
-    params[:task].each_with_index do |id, index|
-      current_user.master_list.list_tasks.update_all(['position=?', index+1], ['task_id=?', id])
-    end
-    render :nothing => true
-  end
 
   def delete
     @task = current_user.tasks.find(params[:id])
