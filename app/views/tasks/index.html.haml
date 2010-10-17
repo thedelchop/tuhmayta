@@ -11,7 +11,7 @@
         %a{:href => "#tabs-2"} Today's tasks
     #tabs-1
       %ul#sortable1.connectedSortable.ui-helper-reset#master-list
-        = render :partial => "task", :collection => @tasks 
+        = render :partial => "task", :collection => @master_tasks 
     #tabs-2
       %ul#sortable2.connectedSortable.ui-helper-reset
         = render :partial => "task", :collection => @current_tasks

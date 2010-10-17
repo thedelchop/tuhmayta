@@ -25,6 +25,9 @@ gem 'will_paginate'
 gem 'capistrano'
 gem 'mongrel'
 
+#Acts-As-Taggable-On for easy tagging
+gem 'acts-as-taggable-on'
+
 # Extra easy rails generators
 gem 'rails3-generators', :group => :development
 gem 'haml-rails', '>= 0.0.2', :group => :development
