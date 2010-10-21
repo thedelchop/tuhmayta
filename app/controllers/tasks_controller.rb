@@ -1,8 +1,6 @@
 class TasksController < ApplicationController
 
   def index
-    @master_tasks = current_user.master_list.list_tasks.all(:order => 'position').collect{|list_task| list_task.task} 
-  
     @current_tasks = current_user.current_list.list_tasks.all(:order => 'position').collect{|list_task| list_task.task} 
 
   end

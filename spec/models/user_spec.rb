@@ -32,4 +32,32 @@ describe User do
     @user.password = "short"
     @user.should_not be_valid
   end
+
+  it "creates a current list after the user is created" do
+    @user.current_list.should_not be_nil
+  end
+
+  it "creates a master list after the user is created" do
+    @user.master_list.should_not be nil
+  end
+
+  describe "#setup_lists" do
+    
+    before do
+      List.stub(:create).with(:name => "current", :user_id => @user.id)
+      List.stub(:create).with(:name => "master", :user_id => @user.id)
+    end
+
+    it "creates a new master list" do
+      List.should_receive(:create).with(:name => "current", :user_id => @user.id)
+    end
+
+    it "creates a new current list" do
+      List.should_receive(:create).with(:name => "master", :user_id => @user.id)
+    end
+
+    after(:each) do
+      @user.setup_lists
+    end
+  end
 end

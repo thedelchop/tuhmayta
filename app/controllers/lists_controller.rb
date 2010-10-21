@@ -21,4 +21,15 @@ class ListsController < ApplicationController
 
     render :nothing => true
   end
+
+  def index
+    #Return a reference to the type of list that was requested
+    if params[:type] == "master"
+       debugger
+       @list = current_user.master_list
+    else
+      debugger
+      @list = current_user.current_list
+    end
+  end
 end

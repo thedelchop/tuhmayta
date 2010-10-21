@@ -8,25 +8,6 @@ describe TasksController do
       controller.stub(:current_user){ @current_user}
     end
 
-  describe "GET 'index'" do
-
-    before(:each) do
-      @tasks = [] 
-      7.times{@tasks << Factory(:task, :user => @current_user)}
-      
-      controller.current_user.stub(:tasks){@tasks}
-    end
-
-    it "should find all of the current user's tasks" do
-      @current_user.should_receive(:tasks).and_return(@tasks)
-      get :index
-    end
-
-    it "should assign all the users tasks to the view" do
-      get :index
-      assigns(:tasks).should == @tasks
-    end
-  end
 
   describe "POST 'create'" do
     before(:each) do

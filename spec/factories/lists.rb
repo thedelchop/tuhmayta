@@ -2,4 +2,5 @@
 
 Factory.define :list do |f|
   f.name "MyString"
+  f.association :user
 end

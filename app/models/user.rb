@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   has_one :setting
 
   def setup_lists
-    List.create(:user_id => self.id, :name => "current")
-    List.create(:user_id => self.id, :name => "master")
+    List.create(:name => "master", :user_id => self.id)
+    List.create(:name => "current", :user_id => self.id)
   end
 end

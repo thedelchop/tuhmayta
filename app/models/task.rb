@@ -24,7 +24,7 @@ class Task < ActiveRecord::Base
    
     # If the task is urgent then we also need to add it to the current_list
     if self.urgent? 
-      ListTask.create(:task_id => self.id, :list_id => current_user.current_list.id)
+      ListTask.create(:task_id => self.id, :list_id => current_user.current_list.id, :position => current_user.current_list.tasks.count + 1)
     end
   end
 end

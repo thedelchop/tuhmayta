@@ -34,4 +34,36 @@ describe Task do
     @task.should_not be_valid
   end
 
+  describe "#append_to_master_list" do
+
+    before do
+      @user = @task.user
+      ListTask.stub(:create)
+    end
+    
+    it "finds the user that the task belongs to" do
+      User.stub(:find).and_return(@user)
+      User.should_receive(:find).and_return(@user)
+      @task.append_to_master_list
+    end
+
+    it "creates a new list task, for the current user's master list and places it at the end of that list" do
+      ListTask.should_receive(:create).with(hash_including(:task_id => @task.id, :list_id => @user.master_list.id, :position => @user.master_list.tasks.count + 1))
+      @task.append_to_master_list
+    end
+
+    context "when the task is urgent" do
+
+      before(:each) do
+        @task.urgent = true
+      end
+
+      it "should also be appended to the end of the user's current task list also" do
+      ListTask.should_receive(:create).with(hash_including(:task_id => @task.id, :list_id => @user.current_list.id, :position => @user.current_list.tasks.count + 1))
+      @task.append_to_master_list
+      end
+
+    end
+  end
+
 end

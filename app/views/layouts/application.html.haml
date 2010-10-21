@@ -11,9 +11,10 @@
     = javascript_include_tag "../renderers/retro/epiclock.retro"
     = javascript_include_tag "../renderers/retro-countdown/epiclock.retro-countdown"
     = javascript_include_tag "application"
-    
     = csrf_meta_tag
   %body
+    #header
+      = render :partial => "shared/navigation"
     #flash.flash_html
       - unless flash[:notice].blank?
         = flash[:notice]
