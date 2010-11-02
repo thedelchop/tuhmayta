@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101017140052) do
+ActiveRecord::Schema.define(:version => 20101102000935) do
 
   create_table "distractions", :force => true do |t|
     t.string   "type"
@@ -42,11 +42,13 @@ ActiveRecord::Schema.define(:version => 20101017140052) do
   end
 
   create_table "settings", :force => true do |t|
-    t.integer  "pomodoro_time", :default => 25
-    t.integer  "rest_time",     :default => 5
+    t.integer  "pomodoro_time",      :default => 25
+    t.integer  "rest_time",          :default => 5
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "long_rest_interval", :default => 4
+    t.integer  "day_length",         :default => 12
   end
 
   create_table "taggings", :force => true do |t|
@@ -73,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20101017140052) do
     t.datetime "updated_at"
     t.integer  "estimate"
     t.boolean  "urgent"
+    t.boolean  "complete",   :default => false
   end
 
   create_table "users", :force => true do |t|

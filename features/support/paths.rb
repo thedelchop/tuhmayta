@@ -11,6 +11,9 @@ module NavigationHelpers
     when /the home\s?page/
       '/'
 
+    when /my master list page/
+      '/lists/master'
+
     when /the new account registration page again/
       '/users'
 
@@ -23,8 +26,11 @@ module NavigationHelpers
     when /the sign in page/
       '/users/sign_in'
 
+    when /my (.*) list page/i
+      list_path($1)
+
     when /my pomodoro page/
-      '/tasks'
+      '/dashboard'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

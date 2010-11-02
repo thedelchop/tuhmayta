@@ -1,0 +1,123 @@
+body {
+  font-size: 62.5%;
+  background: none repeat scroll 0 0 #EEEEEE;
+  line-height: 1;
+  font-family: 'Josefin Sans Std Light',futura,arial,sans-serif;
+  font-size: 18px;
+  color: #555555;
+  text-align: left; }
+
+table {
+  font-size: 1em; }
+
+.banner {
+  height: 106px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+  width: 980px;
+  text-shadow: 1px 1px 0 #FFFFFF;
+  a {
+    float: right;
+    color: #aaa;
+    margin-left: 20px;
+    text-decoration: none;
+    &:hover {
+      color: #000; } } }
+
+.logo {
+  margin-left: 22px;
+  padding-top: 0;
+  float: left; }
+
+.ui-corner-all {
+  border: none;
+  -moz-border-radius: 0px;
+  border-radius: 0px; }
+
+div.content {
+  padding: 25px;
+  font-family: "Trebuchet MS", "Arial", "Helvetica", "Verdana", "sans-serif";
+  margin-left: auto;
+  margin-right: auto;
+  width: 954px;
+  background: url("images/wrapper-bg.png") no-repeat scroll center top transparent;
+  h3.docs {
+    clear: left;
+    font-size: 12px;
+    font-weight: normal;
+    padding: 0 0 1em;
+    margin: 0; } }
+
+#footer {
+  border-right: 2px solid;
+  padding: 0 25px 0 0;
+  width: 550px;
+  margin-top: 1em;
+  margin-bottom: 2em;
+  float: left;
+  color: #AAAAAA;
+  text-shadow: 1px 1px 0 #FFFFFF; }
+
+#sidebar {
+  margin-top: 1em;
+  width: 350px;
+  float: right;
+  color: #AAAAAA;
+  text-shadow: 1px 1px 0 #FFFFFF; }
+
+div.instructions {
+  clear: both;
+  padding: 12px;
+  font-family: "Trebuchet MS", "Arial", "Helvetica", "Verdana", "sans-serif";
+  font-size: 1.3em;
+  line-height: 1.4em; }
+
+#pin-icon {
+  float: left;
+  background-image: url("images/pin.png");
+  width: 30px;
+  height: 25px;
+  margin-left: -5px;
+  margin-top: -8px; }
+
+#tomato-icon {
+  float: right;
+  background-image: url("/images/tomato.png");
+  width: 30px;
+  height: 25px; }
+
+#tomato_bg-icon {
+  float: right;
+  background-image: url("/images/tomato_bg.png");
+  width: 30px;
+  height: 25px; }
+
+#x-icon {
+  float: right;
+  background-image: url("/images/x.png");
+  width: 24px;
+  height: 25px; }
+
+#tabs
+
+.hide {
+  display: none; }
+
+.timer {
+  margin-left: 2em;
+  margin-top: 1em; }
+
+.description {
+  height: 106px;
+  margin-top: 2em;
+  text-shadow: 1px 1px 0 #FFFFFF;
+  p {
+    color: #aaa;
+    margin-left: 20px;
+    text-shadow: 1px 1px 0 #FFFFFF; }
+  a {
+    color: #aaa;
+    text-decoration: none;
+    &:hover {
+      color: #000; } } }

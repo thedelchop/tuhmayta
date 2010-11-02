@@ -2,26 +2,23 @@
 %html
   %head
     %title Tuhmayta
-    = yield :css_includes
     = javascript_include_tag "jquery"
     = javascript_include_tag "jquery-ui"
-    = javascript_include_tag "jquery.boxy"
-    = javascript_include_tag "jquery.dateformat"
-    = javascript_include_tag "jquery.epiclock"
-    = javascript_include_tag "../renderers/retro/epiclock.retro"
-    = javascript_include_tag "../renderers/retro-countdown/epiclock.retro-countdown"
+    = javascript_include_tag "handlebars"
+    = javascript_include_tag "act-as-sortable"
     = javascript_include_tag "application"
+    = javascript_include_tag "http://use.typekit.com/ocg4zkp.js"
+    = javascript_tag "try{Typekit.load();}catch(e){}"
+    = javascript_tag "window._token = '#{form_authenticity_token}'" 
+    = stylesheet_link_tag "screen"
     = csrf_meta_tag
   %body
     #header
-      = render :partial => "shared/navigation"
-    #flash.flash_html
-      - unless flash[:notice].blank?
-        = flash[:notice]
-      - unless flash[:alert].blank?
-        = flash[:alert]
-    = yield :navigation
-    .content
+      #logo-nav-wrapper
+        #logo
+          Tuhmayta!
+        = render :partial => "shared/navigation"
+    #content
       = yield
       #footer
         = yield :footer

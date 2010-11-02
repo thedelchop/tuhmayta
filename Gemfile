@@ -15,6 +15,9 @@ gem 'cancan', '1.3.4'
 # Haml for better markup/styling
 gem 'haml', '>= 3.0.17'
 
+#Compass for stylesheets
+gem 'compass'
+
 # Paperclip for file attachments
 gem 'paperclip'
 
@@ -28,6 +31,7 @@ gem 'mongrel'
 #Acts-As-Taggable-On for easy tagging
 gem 'acts-as-taggable-on'
 
+
 # Extra easy rails generators
 gem 'rails3-generators', :group => :development
 gem 'haml-rails', '>= 0.0.2', :group => :development
@@ -37,7 +41,7 @@ gem 'ruby-debug', :group => :development
 
 group :test, :cucumber do
   gem 'autotest-rails'
-  gem 'capybara', '>= 0.3.9'
+  gem 'capybara', '>= 0.4.0'
   gem 'cucumber-rails', '>= 0.3.2'
   gem 'prawn'
   gem 'database_cleaner', '>= 0.5.2'
@@ -45,4 +49,5 @@ group :test, :cucumber do
   gem 'launchy', '>= 0.3.5'
   gem 'webrat'
   gem 'rspec-rails', '>= 2.0.0.rc'
+  gem 'bermuda'
 end

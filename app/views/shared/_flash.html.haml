@@ -1,0 +1,6 @@
+#flash.flash_html
+  - unless flash()[:notice].blank?
+    = flash()[:notice]
+  - unless flash()[:alert].blank?
+    = flash()[:alert]
+

@@ -29,4 +29,11 @@ describe List do
 
     @second_list.should be_valid
   end
+
+  describe "#to_param" do
+    
+    it "returns the name of the list" do
+      @list.to_param.should == @list.name
+    end
+  end
 end

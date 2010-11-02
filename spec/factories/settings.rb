@@ -1,6 +1,6 @@
-# Read about factories at http://github.com/thoughtbot/factory_girl
-
-Factory.define :settings do |f|
-  f.pomodoro_time 1
-  f.rest_time 1
+Factory.define :settings do |settings|
+  settings.pomodoro_time 25
+  settings.rest_time  5
+  settings.long_rest_interval 4
+  settings.association :user
 end

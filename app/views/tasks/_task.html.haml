@@ -1,7 +1,16 @@
-%li.ui-state-default{:id => "task_#{task.id}"}
-  %span#pin-icon &nbsp;
-  .portlet
-    .portlet-header
-      = task.name 
-      - task.estimate.times do
-        %span.estimated_pomodoros#tomato_bg-icon &nbsp;
+%li{:id => "task_#{task.id}", :class => "task"}
+  .icons-wrapper
+    %span.pin-icon.icon
+    %span.edit-delete-buttons
+      = link_to edit_task_path(task), :class => "edit_button icon" do
+        = image_tag "edit.png" 
+      = form_tag task, :method => "delete",  :class => "delete icon" do
+        = hidden_field_tag '_method', "delete" 
+        = image_submit_tag "cross.png", :class => "delete_button"
+        = hidden_field_tag "authenticity_token", :value => form_authenticity_token
+  .fields-wrapper
+    = task.name
+    - task.estimate.times do
+      %span.estimated_pomodoros.tomato_bg-icon.icon
+
+

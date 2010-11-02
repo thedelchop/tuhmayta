@@ -16,10 +16,13 @@ require 'capybara/rails'
 require 'capybara/cucumber'
 require 'capybara/session'
 require 'selenium-webdriver'
-require 'cucumber/rails/capybara_javascript_emulation' # Lets you click links with onclick javascript handlers without using @culerity or @javascript
+# require 'cucumber/rails/capybara_javascript_emulation' # Lets you click links with onclick javascript handlers without using @culerity or @javascript
 
 require 'factory_girl'
 Factory.find_definitions
+
+#Include Bermuda for more steps to interact with jQuery 
+require 'bermuda/cucumber'
 
 # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
 # order to ease the transition to Capybara we set the default here. If you'd

@@ -4,11 +4,15 @@ class Task < ActiveRecord::Base
   acts_as_taggable
 
   belongs_to :user
+
+  has_many :list_tasks, :dependent => :destroy
+  has_many :lists, :through => :list_tasks
+
   has_many :pomodoros
 
-  attr_accessible :name, :user_id, :user, :estimate, :urgent, :tag_list
+  attr_accessible :name, :complete, :user_id, :user, :estimate, :urgent, :tag_list
 
-  validates :name, :presence => true
+  validates :name, :presence => {:message => "A name is required for each task"}
 
   validates :estimate, :presence => true, 
                        :numericality => {:greater_than => 0, :less_than => 6}

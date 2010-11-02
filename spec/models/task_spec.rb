@@ -34,6 +34,10 @@ describe Task do
     @task.should_not be_valid
   end
 
+  it "defaults to not completed" do
+    @task.complete?.should == false
+  end
+
   describe "#append_to_master_list" do
 
     before do
@@ -66,4 +70,10 @@ describe Task do
     end
   end
 
+  it "deletes all list_tasks that are associated with it upon deletion" do
+      @list_task = Factory(:list_task, :task => @task, :list => @task.user.master_list)
+      task_id = @task.id
+      @task.destroy
+      ListTask.find_by_task_id(task_id).should be_nil
+  end
 end

@@ -7,19 +7,6 @@ describe "layouts/application.html.haml" do
     sign_out @user
   end
 
-  it "should display any flash notices" do
-    flash[:notice] = "This is a test notice"
-    render
-    rendered.should have_selector("div#flash", :content => "This is a test notice")
-  end
-
-  it "should display any flash alerts" do
-    flash[:alert] = "This is a test alert"
-    render
-    rendered.should have_selector("div#flash", :content => "This is a test alert")
-
-  end
-  
   describe "should display a navigation menu for the user" do
 
     context "when the user hasn't yet signed in" do

@@ -1,4 +1,6 @@
 class ListsController < ApplicationController
+  before_filter :authenticate_user!
+
   def sort
     @list = List.find(params[:id])
 
@@ -22,14 +24,19 @@ class ListsController < ApplicationController
     render :nothing => true
   end
 
-  def index
-    #Return a reference to the type of list that was requested
-    if params[:type] == "master"
-       debugger
-       @list = current_user.master_list
-    else
-      debugger
+  def show
+    if params[:name] == "current"
       @list = current_user.current_list
+    else
+      @list = current_user.master_list
+      #Then we should sort the list based on position
+      @list.list_tasks.sort!{|a,b| a.position <=> b.position}
     end
+
+
+    render :layout => false
+  end
+
+  def index
   end
 end

@@ -1,2 +1,19 @@
-%ul#master-task-list
-  = render :partial => "task", :collection => @tasks
+.form-wrapper
+  = form_for :task, :url => "/tasks", :method => "post", :html => {:id => "new-task-form"} do |task|
+    .inputs
+      = task.text_field :name, :id => "task-name"
+      = task.select :estimate, 1..5, :class => "task-estimate"
+      = task.text_field :tags, :id => "task-tags"
+      #task-submit
+        .arrow-left
+        = task.submit "Add Task"
+= render :partial => "shared/flash"
+#tabs-wrapper
+  %ul
+    %li
+      = link_to "Tasks", current_user.master_list, :title => "master-list"
+    %li
+      = link_to "Today", current_user.current_list, :title => "current-list"
+    %li
+      %a{:href => "#pomodoro-tab"}Pomodoros
+  #pomodoro-tab

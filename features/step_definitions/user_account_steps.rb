@@ -40,7 +40,7 @@ Given 'I am a registered Tuhmayta user with the email, "$email"' do |email|
 end
 
 When /^I login/ do
-  visit('users/sign_in')
+  visit('/users/sign_in')
   fill_in('Email', :with => @user.email)
   fill_in('Password', :with => @user.password)
   click_button('Sign in')
@@ -59,6 +59,6 @@ Given /^I am not signed in/ do
 end
 
 When /^I logout/ do
-  click_link('Log Out')
+  click_link('Sign Out')
 end
 

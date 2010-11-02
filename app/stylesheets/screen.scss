@@ -1,0 +1,192 @@
+// This import applies a global reset to any page that imports this stylesheet.
+@import "blueprint/reset";
+
+// To configure blueprint, edit the partials/base.sass file.
+@import "partials/base";
+
+// Import all the default blueprint modules so that we can access their mixins.
+@import "blueprint";
+
+// Combine the partials into a single screen stylesheet.
+@import "partials/page";
+@import "partials/form";
+
+@import "compass/utilities/lists";
+
+@import "compass/css3/gradient";
+@import "compass/css3/border-radius";
+@import "compass/css3/box-shadow";
+
+$ivory: #FFFFF0;
+$army-green: #4B5320;
+$hunter-green: #566600;
+$deep-red: #660000;
+$red: #990033;
+
+body{
+  background: $ivory;
+  font-family: "Trebuchet MS", "Arial", "Helvetica", "Verdana", "sans-serif";}
+
+a{
+  text-decoration: none;
+  color: white;}
+
+#header{
+  min-height: 70px;
+  @include linear-gradient(color-stops($deep-red, $red), top);}
+
+#logo-nav-wrapper{
+  padding: 10px;
+  margin: auto;
+  @include span(24, true);}
+
+#logo{
+  float: left;
+  font-family: "salsbury-1","salsbury-2";
+  font-size: 44px;
+  color: white;}
+
+#content {
+  padding: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  @include span(19, true);}
+
+#navigation{
+  @include horizontal-list;
+  @include float-right;
+  margin: 15px auto;
+  li{
+    margin: auto 10px;}}
+
+.error-on-field{
+  background: red;
+  font-size: 16px;}
+
+.ui-tabs-hide{
+  display: none;}
+
+#tabs-wrapper{
+  margin-top: 35px;}
+
+.ui-tabs-panel{
+  border: 5px solid $deep-red;}
+
+.ui-state-default{
+  margin-right: 5px;
+  padding: 3px !important;
+  border: 1px solid black;
+  border-bottom: none;
+  background: $ivory;}
+
+.ui-state-active{
+  border-bottom: 1px solid $deep-red;
+  background: $deep-red;}
+
+.ui-corner-top{
+  @include border-radius(5px 5px 0 0);}
+
+.ui-tabs-nav{
+  @include horizontal-list;}
+
+.ui-state-active > a{
+  color: white !important;}
+
+.ui-state-default > a{
+  color: black;}
+
+.form-wrapper{
+  @include border-radius(5px 5px 0px 0px);
+  @include box-shadow(#333333, 0px, 5px, 0px, 0, false);
+  background: $army-green;
+  padding: 20px;}
+
+#flash{
+  @include border-radius(0px 0px 5px 5px);
+  padding: 15px;
+  text-indent: 15px;
+  color: white;
+  background: $hunter-green;}
+
+#new-task-form{
+  @include span(18);
+  font-size: 16px;
+  color: white;
+  .inputs{
+    @include border-radius(5px);
+    padding: 15px;
+    height: 30px;
+    @include linear-gradient(color-stops($army-green, $hunter-green), bottom);}
+  input{
+    @include border-radius(5px);
+    width: 250px;
+    padding: 10px;
+    background: $ivory;
+    height: 20px;
+    font-size: 16px;
+    border: none;}
+  select{
+    @include border-radius(5px);
+    background: $ivory;
+    height: 30px;
+    width: 30px;}
+  #task-submit{
+    @include float-right;
+    margin-top: 5px;
+    height: 30px;
+    width: 80px;
+    color: white;
+    background: $deep-red;}
+    .arrow-left {
+      position: relative;
+      right: 47px;
+      width:0px; 
+      height:0px; 
+      border-top:15px solid transparent;  /* left arrow slant */ 
+      border-bottom:15px solid transparent; /* right arrow slant */ 
+      border-right:15px solid $deep-red; /* bottom, add background color here */ 
+      margin:0 auto; /* centers the arrow within the parent container */ 
+      font-size:0px;
+      line-height:0px;}
+    #task_submit{
+      position: relative;
+      bottom: 30px;
+      width: 80px;
+      height: 20px;
+      padding: 5px 20px 20px 20px;
+      background: none;
+      color: white;}}
+
+.task{
+  @include border-radius(5px);
+  background: #FFF8C6;
+  padding: 5px 5px 10px 5px;
+  border: 1px black solid;
+  font-size: 18px;
+  .fields-wrapper{
+    @include span(16);
+    margin: -15px auto 0px;}
+  .icons-wrapper{
+    min-height: 30px;}
+    .edit-delete-buttons{
+      float: right;}}
+
+.icon{
+  width: 30px;
+  height: 25px;
+  display: inline;}
+
+.pin-icon {
+  float: left;
+  background-image: url("images/pin.png");}
+
+.tomato-icon {
+  float: right;
+  background-image: url("/images/tomato.png");}
+
+.tomato_bg-icon {
+  float: right;
+  background-image: url("/images/tomato_bg.png");}
+
+.task-list{
+  list-style: none;}

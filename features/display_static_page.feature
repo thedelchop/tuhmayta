@@ -6,7 +6,7 @@ Feature: Display the Home Page
 
   Scenario: Display the Home Page
     When I go to the home page
-    Then I should see "Welcome to Pomodoro!"
+    Then I should see "Tuhmayta"
 
 
 
