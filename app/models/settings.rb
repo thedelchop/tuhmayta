@@ -5,5 +5,4 @@ class Settings < ActiveRecord::Base
                       :uniqueness => true
   
   attr_accessible :pomodoro_time, :rest_time, :user_id, :long_rest_interval
-
 end

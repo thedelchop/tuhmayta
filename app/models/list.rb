@@ -14,4 +14,8 @@ class List < ActiveRecord::Base
   def to_param
     name
   end
+    
+  def expired?
+    self.updated_at > 1.day.ago
+  end
 end

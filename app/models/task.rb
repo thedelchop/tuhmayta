@@ -18,6 +18,10 @@ class Task < ActiveRecord::Base
                        :numericality => {:greater_than => 0, :less_than => 6}
 
   validates :user_id, :presence => true
+
+  def pomodoros_remaining
+    self.estimate - self.pomodoros.count
+  end
    
   def append_to_master_list
     

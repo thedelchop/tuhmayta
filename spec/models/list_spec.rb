@@ -36,4 +36,30 @@ describe List do
       @list.to_param.should == @list.name
     end
   end
+
+  describe "#expired?" do
+    before(:all) do
+      DAY_IN_SECS = 86400
+    end
+
+    context "when the list is more than 24 hours old" do
+      before(:each)  do
+        @list.stub(:updated_at).and_return(Time.now - DAY_IN_SECS - 1)
+      end
+      
+      it "returns true" do
+        @list.expired?.should == true 
+      end
+    end
+
+    context "when the list is less than 24 hours old" do
+      before(:each) do
+        @list.stub(:updated_at).and_return(Time.now - 1)
+      end
+
+      it "returns nil" do
+        @list.expired?.should == nil
+      end
+    end
+  end
 end

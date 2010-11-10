@@ -24,32 +24,42 @@ class User < ActiveRecord::Base
 
   has_one :settings
 
-  DAY_IN_SECS = 86400
 
   def current_list
     # return the current list, and check to see if its more than 24 hours old
     current_list = List.where(:user_id => self.id, :name => "current").first
-    if Time.now <=> current_list.updated_at + DAY_IN_SECS
+    if current_list.expired?
       # If so, delete the current list and create a new list
       current_list.list_tasks.destroy
 
       @tasks = self.master_list.list_tasks.order('position ASC').collect{|list_task| list_task.task}
 
-      total_pomodoros = self.settings.day_length
+      return current_list if @tasks.nil?
 
+      user_pomodoros_day = self.settings.day_length
+
+      master_list_pomodoros = 0
+
+      #Check to see if the master list has enough pomodoros to fill the current list
+       @tasks.each {|task| master_list_pomodoros += task.pomodoros_remaining}
+      
       itr = 0
 
-      while(total_pomodoros > 0)
-        current_task = tasks[itr]
-        unless current_task.complete?
-          ListTask.create(:list_id => current_list.id, :task_id => current_task.id)
-          total_pomodoros -= current_task.estimate - current_task.pomodoros.count
-          itr += 1
-        end
+      # if the master list is shorter than the 
+      if(master_list_pomodoros < user_pomodoros_day)
+      else
+        while(user_pomodoros_day <=> 0)
+          current_task = @tasks[itr]
+          unless current_task.complete?
+            ListTask.create(:list_id => current_list.id, :task_id => current_task.id)
+            user_pomodoros_day -= current_task.pomodoros_remaining
+            itr += 1
+          end
+        end 
       end
-   
-    #Return the current list 
     end
+    
+    #Return the current list 
     current_list
   end
 

@@ -60,7 +60,7 @@ describe User do
 
     context "when the current list has expired" do
       before(:each) do
-        Time.stub_chain(:now, "<=>").and_return(1)
+        @current_list.stub(:expired?).and_return(true)
         @current_list.stub_chain(:list_tasks,:destroy).and_return(@current_list.list_tasks)
       end
 
@@ -81,6 +81,14 @@ describe User do
         @user.current_list
       end
 
+      context "the master list has no tasks" do
+        
+        it "returns an empty the list" do
+          @tasks = [] 
+          @tasks.stub(:nil?).and_return(true)
+          @user.current_list.should == @current_list
+        end
+      end
     end
   end
 

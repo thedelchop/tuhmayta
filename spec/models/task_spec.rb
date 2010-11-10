@@ -38,6 +38,15 @@ describe Task do
     @task.complete?.should == false
   end
 
+  describe "#pomodoros_remaining" do
+    it "returns the number of pomodoros left to for the task" do
+      debugger
+      @task.estimate = 5
+      @task.stub_chain(:pomodoros, :count).and_return(3)
+      @task.pomodoros_remaining.should == 2
+    end
+  end
+
   describe "#append_to_master_list" do
 
     before do
@@ -71,7 +80,7 @@ describe Task do
   end
 
   it "deletes all list_tasks that are associated with it upon deletion" do
-      @list_task = Factory(:list_task, :task => @task, :list => @task.user.master_list)
+      @list_task = Factory(:list_task, :task => @task, :list => Factory(:list))
       task_id = @task.id
       @task.destroy
       ListTask.find_by_task_id(task_id).should be_nil
