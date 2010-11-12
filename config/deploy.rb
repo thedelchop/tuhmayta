@@ -4,11 +4,11 @@ set :application, "tuhmayta"
 set :user, "deploy"
 
 set :scm, :git
-set :repository,  "git@github.com:railsrumble/rr10-team-215.git"
+set :repository,  "git@github.com:thedelchop/#{application}.git"
 
-set :deploy_to, "/var/apps/#{application}"
+set :deploy_to, "/var/www/apps/#{application}.synantus.com"
 
-set :domain, "tuhmayta.r10.railsrumble.com"
+set :domain, "ares.synantus.com"
 
 role :web, domain
 role :app, domain

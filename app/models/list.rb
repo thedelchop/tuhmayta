@@ -16,6 +16,11 @@ class List < ActiveRecord::Base
   end
     
   def expired?
-    self.updated_at > 1.day.ago
+    self.updated_at < 1.day.ago
+  end
+
+  def tasks
+    #return all of the tasks associated with this list, sorted by postion.
+    self.list_tasks.order('position ASC').collect{|list_task| list_task.task}
   end
 end

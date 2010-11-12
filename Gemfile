@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '>=3.0.0'
 
 gem 'sqlite3-ruby', :require => 'sqlite3', :group => [:test, :development, :cucubmer]
-gem 'mysql', :group => [:production]
+gem 'mysql2', :group => [:production]
 
 # Devise for user authentication and cancan for easer role management
 gem 'hpricot'
@@ -40,6 +40,7 @@ gem 'factory_girl_generator', '>= 0.0.1'
 gem 'ruby-debug', :group => :development
 
 group :test, :cucumber do
+  gem 'spork'
   gem 'autotest-rails'
   gem 'capybara', '>= 0.4.0'
   gem 'cucumber-rails', '>= 0.3.2'
